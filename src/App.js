@@ -2,19 +2,25 @@ import logo from './logo.svg';
 import './App.css';
 import Navigation from './views/Navigation';
 import { useState } from 'react';
+import Todo from './views/Todo';
 
 const App = () => {
     let number = 2023;
     let obj = { name: 'Tuan', title: 'Learn reactjshook basic' };
     let link = "https://reactjs.org";
     let [address, setAddress] = useState('');
-    let [todo, setTodo] = useState([
+    let [todos, settodos] = useState([
         { id: 1, title: 'coding' }
     ]);
     const handleClick = async () => {
-        let newTodo = { id: todo.length + 1, title: address };
-        setTodo([...todo, newTodo]);
-        setAddress('');
+        if (!address) {
+            alert('Missing job')
+        }
+        else {
+            let newtodos = { id: todos.length + 1, title: address };
+            settodos([...todos, newtodos]);
+            setAddress('');
+        }
     }
     const handleChange = (event) => {
         setAddress(event.target.value);
@@ -36,15 +42,9 @@ const App = () => {
                 >
                     Learn React
                 </a>
-                <div>
-                    {todo && todo.length &&
-                        todo.map(item => {
-                            return (
-                                <li className='element-todo' key={item.id}>{item.title}</li>
-                            )
-                        })
-                    }
-                </div>
+                <Todo
+                    todos={todos}
+                />
                 <input value={address} onChange={(event) => handleChange(event)} />
                 <button onClick={() => handleClick()}>Click me</button>
             </header>
