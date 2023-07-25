@@ -7,6 +7,9 @@ const App = () => {
     let number = 2023;
     let obj = { name: 'Tuan', title: 'Learn reactjshook basic' };
     let link = "https://reactjs.org"
+    const handleClick = (event) => {
+        console.log('click me', event.target.value)
+    }
     return (
         <div className="App">
             <Navigation />
@@ -24,6 +27,8 @@ const App = () => {
                 >
                     Learn React
                 </a>
+                <input value='tuan' onClick={(event) => handleClick(event)} />
+                <button onClick={(event) => handleClick(event)}>Click me</button>
             </header>
         </div>
     );
