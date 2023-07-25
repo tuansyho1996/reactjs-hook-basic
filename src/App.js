@@ -10,7 +10,11 @@ const App = () => {
     let link = "https://reactjs.org";
     let [address, setAddress] = useState('');
     let [todos, settodos] = useState([
-        { id: 1, title: 'coding' }
+        { id: 1, title: 'coding', type: 'tuan' },
+        { id: 2, title: 'doing homework', type: 'tuan' },
+        { id: 3, title: 'learn english', type: 'tuan' },
+        { id: 4, title: 'watching youtube', type: 'cha gia' },
+        { id: 5, title: 'playing game', type: 'cha gia' },
     ]);
     const handleClick = async () => {
         if (!address) {
@@ -27,8 +31,8 @@ const App = () => {
     }
     return (
         <div className="App">
-            <Navigation />
             <header className="App-header">
+                <Navigation />
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>hello {obj.name}</p>
                 <div>
@@ -44,6 +48,11 @@ const App = () => {
                 </a>
                 <Todo
                     todos={todos}
+                    title={'All job'}
+                />
+                <Todo
+                    todos={todos.filter(item => item.type === 'tuan')}
+                    title={'Tuan job'}
                 />
                 <input value={address} onChange={(event) => handleChange(event)} />
                 <button onClick={() => handleClick()}>Click me</button>

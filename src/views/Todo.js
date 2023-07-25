@@ -3,6 +3,7 @@ const Todo = (props) => {
     let todos = props.todos
     return (
         <div>
+            <p>{props.title}</p>
             {todos && todos.length &&
                 todos.map(item => {
                     return (
@@ -10,6 +11,7 @@ const Todo = (props) => {
                     )
                 })
             }
+            <hr />
         </div>
     )
 }
