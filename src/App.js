@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Navigation from './views/Navigation';
 
 const App = () => {
     let name = 'tuan';
@@ -8,6 +9,7 @@ const App = () => {
     let link = "https://reactjs.org"
     return (
         <div className="App">
+            <Navigation />
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>hello {name}</p>
