@@ -1,14 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import Navigation from './views/Navigation';
+import { useState } from 'react';
 
 const App = () => {
-    let name = 'tuan';
     let number = 2023;
     let obj = { name: 'Tuan', title: 'Learn reactjshook basic' };
-    let link = "https://reactjs.org"
-    const handleClick = (event) => {
-        console.log('click me', event.target.value)
+    let link = "https://reactjs.org";
+    let [name, setName] = useState('Tuan');
+    const handleClick = () => {
+        console.log('click me', name)
+    }
+    const handleChange = (event) => {
+        setName(event.target.value);
     }
     return (
         <div className="App">
@@ -27,8 +31,8 @@ const App = () => {
                 >
                     Learn React
                 </a>
-                <input value='tuan' onClick={(event) => handleClick(event)} />
-                <button onClick={(event) => handleClick(event)}>Click me</button>
+                <input value={name} onChange={(event) => handleChange(event)} />
+                <button onClick={() => handleClick()}>Click me</button>
             </header>
         </div>
     );
