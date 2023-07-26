@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Navigation from './views/Navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Todo from './views/Todo';
 
 const App = () => {
@@ -16,6 +16,9 @@ const App = () => {
         { id: 4, title: 'watching youtube', type: 'cha gia' },
         { id: 5, title: 'playing game', type: 'cha gia' },
     ]);
+    useEffect(() => {
+        console.log('use effect')
+    }, [address, todos])
     const handleClick = async () => {
         if (!address) {
             alert('Missing job')

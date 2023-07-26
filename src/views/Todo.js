@@ -7,7 +7,7 @@ const Todo = (props) => {
     return (
         <div>
             <p>{title}</p>
-            {todos && todos.length &&
+            {todos &&
                 todos.map(item => {
                     return (
                         <li className='element-todo' key={item.id}>{item.title}
