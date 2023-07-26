@@ -9,7 +9,7 @@ const App = () => {
     let obj = { name: 'Tuan', title: 'Learn reactjshook basic' };
     let link = "https://reactjs.org";
     let [address, setAddress] = useState('');
-    let [todos, settodos] = useState([
+    let [todos, setTodos] = useState([
         { id: 1, title: 'coding', type: 'tuan' },
         { id: 2, title: 'doing homework', type: 'tuan' },
         { id: 3, title: 'learn english', type: 'tuan' },
@@ -21,13 +21,20 @@ const App = () => {
             alert('Missing job')
         }
         else {
-            let newtodos = { id: todos.length + 1, title: address };
-            settodos([...todos, newtodos]);
+            let id = Math.floor(Math.random() * 1000) + 1
+            console.log(id)
+            let newtodos = { id, title: address };
+            setTodos([...todos, newtodos]);
             setAddress('');
         }
     }
     const handleChange = (event) => {
         setAddress(event.target.value);
+    }
+    const deleteElementJob = (id) => {
+        let currentTodos = todos;
+        currentTodos = currentTodos.filter(item => item.id !== id);
+        setTodos(currentTodos);
     }
     return (
         <div className="App">
@@ -49,10 +56,12 @@ const App = () => {
                 <Todo
                     todos={todos}
                     title={'All job'}
+                    deleteElementJob={deleteElementJob}
                 />
                 <Todo
                     todos={todos.filter(item => item.type === 'tuan')}
                     title={'Tuan job'}
+                    deleteElementJob={deleteElementJob}
                 />
                 <input value={address} onChange={(event) => handleChange(event)} />
                 <button onClick={() => handleClick()}>Click me</button>
