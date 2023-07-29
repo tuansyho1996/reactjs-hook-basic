@@ -1,16 +1,10 @@
 import '../App.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios'
+import useFetch from './customize/fectch';
+// import { useEffect, useState } from 'react';
 
 const Users = () => {
-    let [users, setUsers] = useState([])
-    useEffect(() => {
-        const fetchData = async () => {
-            let res = await axios.get('https://reqres.in/api/users');
-            setUsers(res.data.data)
-        }
-        fetchData()
-    }, [])
+
+    let { data: users, isLoading, isError } = useFetch('https://reqres.in/api/users');
     return (
         <div className="Users-container">
             <table>
@@ -22,7 +16,7 @@ const Users = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
+                    {isError === false && isLoading === false && users && users.length > 0 &&
                         users.map((item, index) => {
                             return (
                                 <tr key={index}>
@@ -30,16 +24,19 @@ const Users = () => {
                                     <td>{item.first_name}</td>
                                     <td>{item.last_name}</td>
                                 </tr>
-
                             )
-
                         })
                     }
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
+                    {isLoading === true &&
+                        <tr>
+                            <td colSpan='3'>Loading...</td>
+                        </tr>
+                    }
+                    {isError === true &&
+                        <tr>
+                            <td colSpan='3'>Something wrong</td>
+                        </tr>
+                    }
                 </tbody>
 
             </table>
