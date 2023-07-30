@@ -3,6 +3,7 @@ import './App.css';
 import Navigation from './views/Navigation';
 import { useEffect } from 'react';
 import Users from './views/Users';
+import { Countdown, NewCountdown } from './views/Countdown';
 // import Todo from './views/Todo';
 
 const App = () => {
@@ -48,6 +49,8 @@ const App = () => {
                 <div>
                     <img src={logo} className="App-logo" alt="logo" />
                 </div>
+                <Countdown />
+                <NewCountdown />
                 <p>hello {obj.name}</p>
                 <div>
                     {obj.title} with {obj.name} in {number}
