@@ -10,7 +10,7 @@ import {
     Route,
 } from "react-router-dom";
 import Todo from './views/Todo';
-import Blogs from './views/Blogs';
+import Blog from './views/Blog';
 import DetailBlog from './views/DetailBlog';
 
 const App = () => {
@@ -86,8 +86,8 @@ const App = () => {
                         <input value={address} onChange={(event) => handleChange(event)} />
                         <button onClick={() => handleClick()}>Click me</button>
                     </Route>
-                    <Route path="/blogs">
-                        <Blogs />
+                    <Route path="/blog" exact>
+                        <Blog />
                     </Route>
                     <Route path="/blog/:id">
                         <DetailBlog />
