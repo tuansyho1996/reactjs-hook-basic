@@ -6,7 +6,7 @@ const Users = () => {
 
     let { data: users, isLoading, isError } = useFetch('https://reqres.in/api/users');
     return (
-        <div className="Users-container">
+        <div className="users-container">
             <table>
                 <thead>
                     <tr>

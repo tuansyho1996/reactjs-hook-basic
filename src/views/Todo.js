@@ -5,7 +5,7 @@ const Todo = (props) => {
         deleteElementJob(id)
     }
     return (
-        <div>
+        <div className="todo-container">
             <p>{title}</p>
             {todos &&
                 todos.map(item => {

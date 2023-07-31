@@ -20,7 +20,7 @@ const useFetch = (url) => {
             setIsLoading(false)
             setIsError(true)
         }
-    }, [])
+    }, [url])
     return ({ data, isLoading, isError })
 }
 export default useFetch;
