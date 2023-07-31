@@ -4,7 +4,11 @@ class Countdown extends React.Component {
     state = {
         count: 5
     }
-
+    componentWillUnmount() {
+        if (this.timer) {
+            clearInterval(this.timer)
+        }
+    }
     componentDidMount() {
         this.timer = setInterval(() => {
             this.setState({
