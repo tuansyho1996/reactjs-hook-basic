@@ -10,6 +10,8 @@ import {
     Route,
 } from "react-router-dom";
 import Todo from './views/Todo';
+import Blogs from './views/Blogs';
+import DetailBlog from './views/DetailBlog';
 
 const App = () => {
 
@@ -83,6 +85,12 @@ const App = () => {
                         />
                         <input value={address} onChange={(event) => handleChange(event)} />
                         <button onClick={() => handleClick()}>Click me</button>
+                    </Route>
+                    <Route path="/blogs">
+                        <Blogs />
+                    </Route>
+                    <Route path="/blog/:id">
+                        <DetailBlog />
                     </Route>
                 </Switch>
             </div>

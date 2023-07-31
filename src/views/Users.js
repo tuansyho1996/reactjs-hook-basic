@@ -4,7 +4,7 @@ import useFetch from './customize/fectch';
 
 const Users = () => {
 
-    let { data: users, isLoading, isError } = useFetch('https://reqres.in/api/users');
+    let { data: users, isLoading, isError } = useFetch('https://reqres.in/api/users', true);
     return (
         <div className="users-container">
             <table>
