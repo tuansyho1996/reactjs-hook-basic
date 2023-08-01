@@ -3,6 +3,33 @@
     gap: 10px;
     justify-content: center;
     .single-blog{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 10px;
         border: solid 1px;
+        .title-blog{
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .body-blog{
+            font-size: 14px;
+        }
     }
+}
+.detail-blog-container{
+    .content-detail-blog{
+        border: solid 1px;
+        padding: 10px;
+        margin: 10px;
+        min-height: 100px;
+        .title-detail-blog{
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .body-detail-blog{
+            font-size: 14px;
+        }
+    } 
 }

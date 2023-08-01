@@ -17,7 +17,7 @@ const Blog = () => {
                     return (
                         <div className="single-blog col-3" key={item.id}>
                             <p className="title-blog ">Title: {item.title}</p>
-                            <p className="content-blog">{item.body}</p>
+                            <p className="body-blog">{item.body}</p>
                             <button>
                                 <Link to={`/blog/${item.id}`}>Detail</Link>
                             </button>
