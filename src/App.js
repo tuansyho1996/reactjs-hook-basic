@@ -12,6 +12,7 @@ import {
 import Todo from './views/Todo';
 import Blog from './views/Blog';
 import DetailBlog from './views/DetailBlog';
+import AddNewBlog from './views/AddNewBlog';
 
 const App = () => {
 
@@ -89,9 +90,13 @@ const App = () => {
                     <Route path="/blog" exact>
                         <Blog />
                     </Route>
+                    <Route path="/blog/add-new-blog" exact>
+                        <AddNewBlog />
+                    </Route>
                     <Route path="/blog/:id">
                         <DetailBlog />
                     </Route>
+
                 </Switch>
             </div>
         </Router>
