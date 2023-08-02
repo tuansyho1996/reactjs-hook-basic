@@ -12,6 +12,7 @@ import {
 import Todo from './views/Todo';
 import Blog from './views/Blog';
 import DetailBlog from './views/DetailBlog';
+import NotFound from './views/NotFound';
 
 const App = () => {
 
@@ -92,7 +93,9 @@ const App = () => {
                     <Route path="/blog/:id">
                         <DetailBlog />
                     </Route>
-
+                    <Route path="*">
+                        <NotFound />
+                    </Route>
                 </Switch>
             </div>
         </Router>
