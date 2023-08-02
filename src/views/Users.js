@@ -1,10 +1,17 @@
 import '../App.css';
 import useFetch from './customize/fectch';
-// import { useEffect, useState } from 'react';
+
+import { useEffect, useState } from 'react';
 
 const Users = () => {
-
+    const [dataUsers, setDataUsers] = useState([]);
     let { data: users, isLoading, isError } = useFetch('https://reqres.in/api/users', true);
+    useEffect(() => {
+        if (users && users.length > 0) {
+            setDataUsers(users);
+        }
+    }, [users])
+    console.log('check user', users)
     return (
         <div className="users-container">
             <table>
@@ -16,8 +23,8 @@ const Users = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {isError === false && isLoading === false && users && users.length > 0 &&
-                        users.map((item, index) => {
+                    {isError === false && isLoading === false && dataUsers && dataUsers.length > 0 &&
+                        dataUsers.map((item, index) => {
                             return (
                                 <tr key={index}>
                                     <td>{item.email}</td>
