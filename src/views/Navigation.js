@@ -8,6 +8,7 @@ const Navigation = () => {
             <NavLink activeClassName="active" to="/countdown">Countdown</NavLink>
             <NavLink activeClassName="active" to="/todo">Todo</NavLink>
             <NavLink activeClassName="active" to="/blog">Blog</NavLink>
+            <NavLink activeClassName="active" to="/youtube-search">Youtube Search</NavLink>
         </div>
     )
 }

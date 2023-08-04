@@ -13,6 +13,7 @@ import Todo from './views/Todo';
 import Blog from './views/Blog';
 import DetailBlog from './views/DetailBlog';
 import NotFound from './views/NotFound';
+import YoutubeSearch from './views/YoutubeSearch';
 
 const App = () => {
 
@@ -92,6 +93,9 @@ const App = () => {
                     </Route>
                     <Route path="/blog/:id">
                         <DetailBlog />
+                    </Route>
+                    <Route path="/youtube-search">
+                        <YoutubeSearch />
                     </Route>
                     <Route path="*">
                         <NotFound />
